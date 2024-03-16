@@ -1,0 +1,67 @@
+body {
+    overflow: hidden;
+}
+
+/* qr code / about /  */
+.header-container {
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+}
+
+.header,
+.content-wrapper {
+    width: 90%;
+    max-width: 1166px;
+    margin: 0 auto;
+}
+
+.header {
+    flex-direction: column-reverse;
+    gap: 5rem;
+}
+
+.content-wrapper {
+    display: grid;
+    place-items: center;
+}
+
+.qr-code {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    background-color: var(--text-color);
+    margin-bottom: 8rem;
+}
+
+.qr-code::before {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: var(--color-navy-alpha);
+    content: '';
+    z-index: -1000;
+    top: -2rem;
+    left: -2rem;
+    position: absolute;
+}
+
+.qr-options-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+
+    .header,
+    .qr-options-btns {
+        flex-direction: row;
+    }
+
+    .qr-options-btns {
+        justify-content: center;
+    }
+}

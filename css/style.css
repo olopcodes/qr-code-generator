@@ -71,13 +71,25 @@ button {
     background-color: var(--text-color);
     color: var(--bg-color);
     box-shadow: var(--box-shadow);
+}
 
+.btn-theme:hover {
+    background-color: var(--color-navy-alpha);
+    box-shadow: none;
 }
 
 .btn-primary {
     background-color: var(--accent-color);
     border-radius: 10px;
     padding: 1rem 1.75rem;
+}
+
+.btn-outline {
+    border: 1.5px solid;
+}
+
+.btn-outline:hover {
+    color: var(--accent-color);
 }
 
 .btn-primary:hover {
@@ -137,17 +149,6 @@ button {
     align-self: stretch;
 }
 
-
-/* qr code / about /  */
-.header-container {
-    padding: 3rem 0;
-}
-
-.header {
-    width: 90%;
-    max-width: 1166px;
-    margin: 0 auto;
-}
 
 @media screen and (min-width: 600px) {
     .qr-code-input-box {
