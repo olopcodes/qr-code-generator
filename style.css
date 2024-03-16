@@ -1,0 +1,171 @@
+:root {
+    --text-color: #f2f5f9;
+    --accent-color: #3662e3;
+    --bg-color: #111729;
+    --color-gray: #364153;
+    --color-navy-alpha: #4e80ee33;
+    --box-shadow: 0px 4px 10px rgba(255, 255, 255, .2);
+
+}
+
+[data-theme="light"] {
+    --bg-color: #f2f5f9;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, .1);
+    --text-color: #111729;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    transition: background-color .4s ease-in-out, color .4s ease-in-out;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.qr-code-home {
+    display: grid;
+    place-items: center;
+}
+
+input {
+    all: unset;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.d-flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+/* button ====================== */
+.btn {
+    padding: .75rem 1.25rem;
+    border-radius: 5px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: .3s ease-in-out;
+}
+
+.btn-theme {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    padding: 1rem 1.75rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-gray);
+}
+
+
+/* home styles */
+.bg-img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 90%;
+    top: 50%;
+}
+
+.qr-code-home .btn-theme {
+    position: fixed;
+    right: 1.25rem;
+    top: 2rem;
+}
+
+.qr-code-wrapper {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    min-width: 90%;
+    max-width: 800px;
+}
+
+.qr-code-wrapper img {
+    width: 250px;
+    margin-bottom: 2rem;
+}
+
+
+.qr-code-input-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.qr-code-input-box input {
+    text-align: justify;
+    text-indent: .5rem;
+    font-size: 1.15rem;
+    border: 2px solid var(--accent-color);
+    padding: 1rem;
+    border-radius: 15px;
+    align-self: stretch;
+}
+
+.qr-code-input-box button {
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+
+/* qr code / about /  */
+.header-container {
+    padding: 3rem 0;
+}
+
+.header {
+    width: 90%;
+    max-width: 1166px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 600px) {
+    .qr-code-input-box {
+        border-radius: 15px;
+        border: 2px solid var(--accent-color);
+        width: 500px;
+        padding: .75rem;
+        margin: 0 auto;
+    }
+
+    .qr-code-input-box input {
+        padding: .75rem 0;
+        border: 0;
+    }
+
+    .qr-code-input-box button {
+        position: absolute;
+        right: .5rem;
+        top: 8px;
+    }
+}
