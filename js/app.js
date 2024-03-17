@@ -1,6 +1,8 @@
 $(document).ready(function () {
     const urlInput = $('.url-input')[0];
     const qrCodeBtn = $('#qr-code-btn');
+    const btnTheme = $('#theme-toggle');
+    let currentTheme = document.querySelector('body').getAttribute('data-theme');
 
     const isValidUrl = urlString => {
         var urlPattern = new RegExp('^(https?:\\/\\/)?' + // validate protocol
@@ -19,7 +21,7 @@ $(document).ready(function () {
 
         if (isValid) {
             // switch to the qr page and add parameter
-            const url = `../qr-code.html?qrcode=${value}`
+            const url = `../qr-code.html?qrcode=${value}&theme=${currentTheme}`
             window.location.href = url;
 
         } else {
@@ -27,6 +29,18 @@ $(document).ready(function () {
         }
     });
 
+
+    $(btnTheme).click(function (e) {
+        e.preventDefault();
+
+        if (currentTheme === 'light') {
+            currentTheme = 'dark';
+            document.body.setAttribute('data-theme', 'dark');
+        } else {
+            currentTheme = 'light';
+            document.body.setAttribute('data-theme', 'light');
+        }
+    });
 });
 
 
