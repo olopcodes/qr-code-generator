@@ -1,23 +1,32 @@
-(function () {
+(async function () {
     const qrcodeEl = document.querySelector('.qr-code');
+    const downloadBtn = document.querySelector('#download');
 
-
+    // get params of the url
     function getURLParams(url) {
         return Object.fromEntries(new URL(url).searchParams.entries());
     }
 
+    // get the params of this url
     const url = window.location.href
-
     const param = getURLParams(url);
 
-    const qrcode = new QRCode("qrcode", {
-        text: param.qrcode,
-        width: 175,
-        height: 175,
-        colorDark: "#232323",
-        colorLight: "#fefefe"
-    });
+    // fetch a new qrcode with the value in the params
+    const res = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${param.qrcode}&size=200x200`);
 
-    qrcodeEl.innerHTML = qrcode;
+    // set the href of the download button to the qrcode
+    downloadBtn.setAttribute('herf', res.url)
+
+
+    // create a new image element
+    const img = document.createElement('img');
+    // set the source of the image element to the result of the fetch
+    img.src = res.url;
+
+    // clear the qrcode element
+    qrcodeEl.innerHTML = '';
+
+    // append new qrcode image
+    qrcodeEl.append(img);
 
 })();

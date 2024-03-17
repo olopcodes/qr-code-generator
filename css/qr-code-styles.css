@@ -2,6 +2,13 @@ body {
     overflow: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
 /* qr code / about /  */
 .header-container {
     padding: 3rem 0;
@@ -32,6 +39,8 @@ body {
     border-radius: 20px;
     background-color: var(--text-color);
     margin-bottom: 8rem;
+    display: grid;
+    place-items: center;
 }
 
 .qr-code::before {
